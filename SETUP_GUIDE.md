@@ -151,13 +151,13 @@ cd TradeIQ
 
 This file stores sensitive configuration (API keys, database passwords, etc.).
 
-In the root of your TradeIQ folder, create a file called `.env`:
+In the root of your TradeIQ folder, copy `.env.example` to `.env`:
 
 ```bash
-touch .env
+cp .env.example .env
 ```
 
-Add this content (we'll populate real values later):
+Set `POSTGRES_PASSWORD` and `SPRING_DATASOURCE_PASSWORD` in `.env` to the same strong local password. The `.env` file is ignored by Git; never commit it.
 
 ```env
 # Database
@@ -180,12 +180,6 @@ NEXT_PUBLIC_API_URL=http://localhost:8080/api
 OPENAI_API_KEY=your_key_here
 TWELVE_DATA_API_KEY=your_key_here
 TRADING_ECONOMICS_API_KEY=your_key_here
-```
-
-**Important:** Add `.env` to `.gitignore` so you never commit secrets:
-
-```bash
-echo ".env" >> .gitignore
 ```
 
 ---
